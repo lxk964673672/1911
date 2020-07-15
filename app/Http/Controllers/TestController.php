@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Foundation\Validation\ValidatesRequests;
-use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Http\Request;
+use GuzzleHttp\Client;
 
 class TestController extends Controller
 {
@@ -35,5 +33,14 @@ class TestController extends Controller
         //关闭curl资源 并且释放系统资源
         curl_close($ch);
         echo $response;
+    }
+    public function getWxToken3(){
+        $appid='wxc5e4dd173db22e83';
+        $appsecret='3f6e9d296e9d11116e38acb2c037e346';
+        $url='https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid='.$appid.'&secret='.$appsecret;
+        $client=new Client();
+        $response=$client->request('GET',$url);
+        $data=$response->getBody();
+        echo $data;
     }
 }
