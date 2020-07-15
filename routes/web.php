@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('hellow','TestController@hellow');
+Route::get('/wx/token','TestController@getWxToken');
+Route::get('/wx/token2','TestController@getWxToken2');
