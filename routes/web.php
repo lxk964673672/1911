@@ -14,8 +14,14 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('hellow','TestController@hellow');
-Route::get('/wx/token','TestController@getWxToken');
-Route::get('/wx/token2','TestController@getWxToken2');
-Route::get('/wx/token3','TestController@getWxToken3');
+Route::get('/user/info','TestController@userInfo');
+
+Route::get('/test2','TestController@test2');
+
+//接口测试
+Route::post('/user/reg','User\IndexController@reg');
+//登录
+Route::post('/user/login','User\IndexController@login');
+//平台
+Route::get('/user/center','User\IndexController@center');
 
