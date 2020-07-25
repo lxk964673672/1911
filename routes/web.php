@@ -14,14 +14,31 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/user/info','TestController@userInfo');
+Route::get('/info', function () {
+    phpinfo();
 
-Route::get('/test2','TestController@test2');
+});
+
+Route::get('/redis/hash1','TextController@hash1');
 
 //接口测试
 Route::post('/user/reg','User\IndexController@reg');
 //登录
 Route::post('/user/login','User\IndexController@login');
-//平台
-Route::get('/user/center','User\IndexController@center');
+//个人中心
+Route::get('/user/center','User\IndexController@center')->middleware('verify.token','count');
+//商品
+Route::get('/goods','User\IndexController@goods');
+
+
+
+
+Route::get('/test1','TestController@test1')->middleware('count');
+Route::post('/test/dec','TestController@dec');
+
+Route::get('/test/aes1','TestController@aes1');
+
+Route::get('/test/rsa1','TestController@rsa1');
+
+Route::get('/test/sign1','TestController@sign1');
 
