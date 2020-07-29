@@ -42,3 +42,4 @@ Route::get('/test/rsa1','TestController@rsa1');
 
 Route::get('/test/sign1','TestController@sign1');
 
+Route::get('/test/text1','TestController@text1');

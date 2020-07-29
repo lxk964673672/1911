@@ -92,4 +92,19 @@ class TestController extends Controller
 
     }
 
+    public function test1(){
+
+        if(isset($_SERVER['HTTP_TOKEN'])){
+            //
+        }else{
+            echo '授权失败';
+            die;
+        }
+        $uid=$_SERVER['HTTP_UID'];
+        $token=$_SERVER['HTTP_TOKEN'];
+
+        echo 'uid: '.$uid;echo '</br>';
+        echo 'token: '.$token;echo '</br>';
+    }
+
 }
